@@ -6,14 +6,16 @@
   <!-- section -->
 
   <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-12 h-screen bg-home" id="home"
-    style="padding-top: 25vh;background: url('<?php the_field('home-section_home-background'); ?>') no-repeat center center; background-size: cover;">
+    style="padding-top: 25vh;background: url('<?php wp_is_mobile() ? the_field('home-section_home-background-mobile') : the_field('home-section_home-background'); ?>') no-repeat center center; background-size: cover;">
     <div></div>
 
+    <?php if(!wp_is_mobile()) { ?>
     <div class="flex justify-center px-4 lg:p-20 content-end flex-wrap">
       <img src="<?php echo get_template_directory_uri(); ?>/img/souris_scroll.png" alt="">
     </div>
+    <?php }?>
 
-    <div class="flex justify-end px-4 lg:p-20 content-end flex-wrap">
+    <div class="flex justify-start lg:justify-end px-4 lg:p-20 content-end flex-wrap">
       <?php if( have_rows('home-section_home-social') ): ?>
 
       <ul class="list-none">
@@ -33,9 +35,9 @@
     </div>
   </section>
 
-  <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-12 h-screen" id="cars-category-section">
-    <div class="flex justify-center px-4 lg:p-20 content-center flex-wrap flex-col"
-      style="background-size: cover; background: no-repeat center fixed;">
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-12 h-screen" id="cars-category-section"  style="background-size: cover; background: -16em 0em / cover no-repeat;">
+    <div class="flex px-6 py-14 justify-start lg:justify-center px-4 lg:p-20 lg:content-center flex-wrap flex-col"
+   >
       <h2 class="text-white text-2xl lg:text-3xl mb-5">Nos véhicules</h2>
       <?php if( have_rows('our-cars_category') ): ?>
 
@@ -64,20 +66,21 @@
 
     </div>
   </section>
-  <section class="grid grid-cols-1 gap-x-4 gap-y-12 h-screen">
-    <div class="flex px-4 lg:p-20 justify-center content-start flex-wrap flex-col"
+  <section class="grid grid-cols-1 gap-x-4 gap-y-12">
+    <div class="flex px-4 py-16 lg:p-20 justify-center content-start flex-wrap flex-col"
       style="background-size: cover; background: no-repeat center fixed;">
       <h2 class="text-black text-2xl lg:text-3xl mb-5">Nos services</h2>
 
-      <div>
-        <?= do_shortcode('[vikrentcar view="vikrentcar" lang="fr-FR"]'); ?>
-
+      <div
+        class="flex justify-around px-4 lg:p-20 content-center flex-wrap flex-row col-span-2 z-50 text-justify w-full">
+        <?php the_field('our_services'); ?>
       </div>
 
 
     </div>
+
   </section>
-  <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-12 min-h-screen py-8 bg-black text-white relative"
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-12 min-h-screen py-16 bg-black text-white relative"
     id="about-section"
     style="background: url('<?php the_field('our-story_background'); ?>') no-repeat center center; background-size: cover;">
 
@@ -86,17 +89,17 @@
 
       <ul class="list-none ml-0" id="about-list">
         <li
-          class="text-4xl lg:text-5xl text-white capitalize mb-10 slider-about cursor-pointer hover:text-gray-300 font-bold underline"
+          class="text-2xl lg:text-5xl text-white capitalize mb-10 slider-about cursor-pointer hover:text-gray-300 font-bold underline"
           data-element="story-element" data-background="<?php the_field('our-story_background'); ?>">
           Notre histoire
         </li>
         <li
-          class="text-4xl lg:text-5xl text-white capitalize mb-10 slider-about cursor-pointer hover:text-gray-300 font-bold"
+          class="text-2xl lg:text-5xl text-white capitalize mb-10 slider-about cursor-pointer hover:text-gray-300 font-bold"
           data-element="values-element" data-background="<?php the_field('our-values_background'); ?>">
           Nos valeurs
         </li>
         <li
-          class="text-4xl lg:text-5xl text-white capitalize mb-10 slider-about cursor-pointer hover:text-gray-300 font-bold"
+          class="text-2xl lg:text-5xl text-white capitalize mb-10 slider-about cursor-pointer hover:text-gray-300 font-bold"
           data-element="teams-element">
           Notre équipe
         </li>
