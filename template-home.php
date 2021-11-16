@@ -35,6 +35,20 @@
     </div>
   </section>
 
+  <section class="grid grid-cols-1 gap-x-4 gap-y-12 h-screen" id="gallery-carousel-section">
+    <div class="flex px-4 lg:p-20 justify-center content-start flex-wrap flex-col"
+      style="background-size: cover; background: no-repeat center fixed;">
+      <h2 class="text-white text-2xl lg:text-3xl mb-5">Notre actualité</h2>
+
+      <div class="w-full">
+        <?php do_shortcode(the_field('carousel_actuality')) ?>
+      </div>
+
+      <p class="text-white text-center text-xl lg:text-3xl mb-5 mt-14">Swipez pour découvrir les article</p>
+
+    </div>
+  </section>
+
   <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-12 h-screen" id="cars-category-section"  style="background-size: cover; background: -16em 0em / cover no-repeat;">
     <div class="flex px-6 py-14 justify-start lg:justify-center px-4 lg:p-20 lg:content-center flex-wrap flex-col"
    >
@@ -66,7 +80,7 @@
 
     </div>
   </section>
-  <section class="grid grid-cols-1 gap-x-4 gap-y-12">
+ <section class="grid grid-cols-1 gap-x-4 gap-y-12">
     <div class="flex px-4 py-16 lg:p-20 justify-center content-start flex-wrap flex-col"
       style="background-size: cover; background: no-repeat center fixed;">
       <h2 class="text-black text-2xl lg:text-3xl mb-5">Nos services</h2>

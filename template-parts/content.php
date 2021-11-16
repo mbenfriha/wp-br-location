@@ -9,29 +9,22 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>"  class="grid justify-items-center">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="entry-title text-2xl">', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
-				<?php
-				br_location_posted_on();
-				br_location_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
+		
 	</header><!-- .entry-header -->
 
 	<?php br_location_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content container mx-auto">
 		<?php
 		the_content(
 			sprintf(
@@ -48,16 +41,9 @@
 			)
 		);
 
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'br-location' ),
-				'after'  => '</div>',
-			)
-		);
+	
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php br_location_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+
 </article><!-- #post-<?php the_ID(); ?> -->
